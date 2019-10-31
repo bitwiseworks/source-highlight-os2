@@ -10,6 +10,10 @@
 
 #SUBDIRS = includes
 
+VENDOR ?=community
+BUILD_INFO=\#\#1\#\# $(shell date +'%d %b %Y %H:%M:%S')     $(shell uname -n)
+BUILDLEVEL_INFO=@\#$(VENDOR):$(VERSION)\#@$(BUILD_INFO)::::0::
+
 if NO_DOUBLECPP
 
 else
@@ -98,7 +102,10 @@ libsource_highlight_la_SOURCES = \
 libsource_highlight_la_LIBADD = $(top_builddir)/gl/libgnu.la \
 	@LTLIBOBJS@ $(BOOST_REGEX_LIB)
 
-libsource_highlight_la_LDFLAGS = $(AM_LDFLAGS) -version-info $(LIBRARY_VERSION)
+libsource_highlight_la_LDFLAGS = $(AM_LDFLAGS) -version-info $(LIBRARY_VERSION) \
+	-buildlevel '$(BUILDLEVEL_INFO)' \
+	-shortname srchili \
+ 	-export-symbols-regex "(ZN9srchilite)"
 
 library_includedir=$(includedir)/$(LIBRARY_NAMESPACE)
 library_include_HEADERS = $(h_sources)
