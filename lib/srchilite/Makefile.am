@@ -105,7 +105,7 @@ libsource_highlight_la_LIBADD = $(top_builddir)/gl/libgnu.la \
 libsource_highlight_la_LDFLAGS = $(AM_LDFLAGS) -version-info $(LIBRARY_VERSION) \
 	-buildlevel '$(BUILDLEVEL_INFO)' \
 	-shortname srchili \
- 	-export-symbols-regex "(ZN9srchilite)"
+ 	-export-symbols-regex "(ZTVN9srchilite|ZN9srchilite|ZNK9srchilite)"
 
 library_includedir=$(includedir)/$(LIBRARY_NAMESPACE)
 library_include_HEADERS = $(h_sources)

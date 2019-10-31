@@ -11,7 +11,7 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/gl \
 	-I$(top_builddir)/gl \
-	-I$(top_srcdir)/src -I$(srcdir)/..
+	-I$(top_srcdir)/src -I$(srcdir)/.. \
 	$(BOOST_CPPFLAGS)
 AM_LDFLAGS = $(BOOST_LDFLAGS) -no-install
 
